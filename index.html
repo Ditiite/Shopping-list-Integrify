@@ -9,9 +9,37 @@
         <!-- Icon link -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
         <script src="https://use.fontawesome.com/8756b65303.js"></script>
+
+        <link rel="stylesheet" href="css/styles.css" >
      </head>
      <body>
-         
+        <div class="container">
+            <section id="add-item-panel" class="add-item-panel">
+                <h1>Add item</h1>
+                <form id="add-item-form" action="/add-item">
+                    <label for="item">Item</label>
+                    <input type="text" name="item" id="item" placeholder="item name" />
+                    <br />
+                    <label for="quantity">Quantity</label>
+                    <input type="number" min="1" name="quantity" id="quantity" value=1 />
+                    <br />
+                    <button class="btn-add">Add</button>
+                </form>
+            </section>
+
+            <section id="shopping-list" class="shopping-list">
+                <h1>Shopping List</h1>
+                <ul class="list">
+                </ul>
+            </section>
+
+            <section id="done-list" class="done-list">
+                <h1>Done List</h1>
+                <ul class="list">
+                </ul>
+            </section>
+        </div>
+
         <script type="text/javascript" src="js/index.js" ></script>
      </body>
 </html>
