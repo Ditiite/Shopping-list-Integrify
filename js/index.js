@@ -28,9 +28,15 @@ function renderShoppingList() {
     shoppingList.forEach(shoppingItem => {
         let itemEl = document.createElement('li');
 
-        let doneCheckEl = document.createElement('input');
-        doneCheckEl.type = 'checkbox';
-        doneCheckEl.name = 'done-check';
+        let html = `
+            <input type="checkbox" name="done-check" />
+            <span>${shoppingItem.name}</span>
+            <span>${shoppingItem.quantity}</span>
+            <button class="btn-delete" ><i class="fas fa-trash-alt"></i></button>
+        `;
+        itemEl.innerHTML = html;
+
+        const doneCheckEl = itemEl.querySelector('input[name=done-check]');
         doneCheckEl.addEventListener('change', event => {
             shoppingList = removeItem(shoppingItem, shoppingList);
             addItem(shoppingItem, doneList);
@@ -39,27 +45,12 @@ function renderShoppingList() {
                 renderDoneList();
             }, 250);
         });
-        itemEl.appendChild(doneCheckEl);
 
-        let nameEl = document.createElement('span');
-        nameEl.innerHTML = shoppingItem.name;
-        itemEl.appendChild(nameEl);
-
-        let quantityEl = document.createElement('span');
-        quantityEl.innerHTML = shoppingItem.quantity;
-        itemEl.appendChild(quantityEl);
-
-
-        let btnDelete = document.createElement('button');
-        btnDelete.classList.add('btn-delete');
-        btnDelete.innerHTML = '<i class="fas fa-trash-alt"></i>';
+        const btnDelete = itemEl.querySelector('button.btn-delete');
         btnDelete.addEventListener('click', event => {
             shoppingList = removeItem(shoppingItem, shoppingList);
             renderShoppingList();
         });
-
-        itemEl.appendChild(btnDelete);
-
 
         listEl.appendChild(itemEl);
     });
