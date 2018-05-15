@@ -34,9 +34,10 @@ function renderShoppingList() {
         doneCheckEl.addEventListener('change', event => {
             shoppingList = removeItem(shoppingItem, shoppingList);
             addItem(shoppingItem, doneList);
-
-            renderShoppingList();
-            renderDoneList();
+            setTimeout(() => {
+                renderShoppingList();
+                renderDoneList();
+            }, 250);
         });
         itemEl.appendChild(doneCheckEl);
 

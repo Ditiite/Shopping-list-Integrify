@@ -98,6 +98,7 @@
  
  ul {
     list-style-type: none;
+    padding: 20px 0 20px 30px;
  }
  
  .add-item-panel {
@@ -226,5 +227,6 @@
 
  i {  
     font-size: 1.5em;
+    justify-self: right;
  }
 
