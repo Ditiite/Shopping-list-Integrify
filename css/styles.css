@@ -1,52 +1,103 @@
 * {
-    padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    padding: 0;
     font-size: 18px;
  }
  
- .title-section {
-    height: 100vh;
-    position: relative;
+ button {
+    font-family: "Emilys Candy", cursive;
+    cursor: pointer;
  }
  
- /******* TITLE ********/
- .title span {
-    font-family: "Emilys Candy", cursive;
-    font-size: 12em;
-    top: 100px;
+ .title-container {
+    width: 100wv;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background:linear-gradient(-45deg, rgba(0,0,1,1),rgba(7,11,122,1));
  }
- /**
- *https://impresa.prensa.com/vivir/mordisco-sabor_LPRIMA20160203_0083_31.jpg
- *https://cbsla.files.wordpress.com/2014/11/shutterstock_227116405.jpg?w=1000
- *http://s1.1zoom.me/big0/618/Fast_food_Pizza_486171.jpg
- *just strawberies
- */
+ 
  .title {
-    background: url(https://cbsla.files.wordpress.com/2014/11/shutterstock_227116405.jpg?w=1000),linear-gradient(-45deg, rgba(142,242,172,.7)
-                          30%, rgba(25,0,0,1)100%);
+    /*background-image: linear-gradient(-45deg, rgba(142,242,172,.7) 30%, rgba(25,0,0,1)100%);*/
     font-weight: bolder;
     -webkit-background-clip: text, border;
-    color: transparent;
+    color: pink;
     text-align: center;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
     position: relative;
-    padding: 200px 20px;
+    padding: 200px 20px 0;
+    font-family: "Emilys Candy", cursive;
  }
  
- p {
-    margin-top: -50px;
-    font-size: 1.8em;
+ .title h1 {
+    
+    font-size: 150px;
+ }
+ .main-pic {
+    position: relative;
  }
  
- /********* SECOND *******/
+ .main-pic img {
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    transform: translatex(50%);
+    transform: translate(-50%);
+    /** SHADOW TO CUPCAKE */
+    /**-webkit-filter: drop-shadow( -5px -5px 5px #000 ); 
+             filter: drop-shadow( -5px -5px 5px #000 );
+    */
+ }
+ 
+ .cake {
+    -webkit-animation: play 1s steps(10) infinite;
+    -moz-animation: play 1s steps(10) infinite;
+    -ms-animation: play 1s steps(10) infinite;
+    -o-animation: play 1s steps(10) infinite;
+    animation: play 1s steps(10) infinite;
+ }
+ 
+ @keyframes play {
+    0% {
+       transform: translatey(0px);
+    }
+    50% {
+       transform: translatey(-20px);
+    }
+    100% {
+       transform: translatey(0px);
+    }
+ }
+ 
+ .nav {
+    grid-column: 1/-1;
+    color: #fff;
+    font-size: 1.5em;
+ }
+ 
+ nav ul {
+    display: flex;
+    justify-content: space-evenly;
+ }
+ 
+ nav ul li {
+    font-size: 2em;
+    padding: 20px;
+    cursor: pointer;
+    text-shadow: 1px 1px 10px #fff;
+    font-family: "Emilys Candy", cursive;
+ }
+ 
+ /********* 
+ SECOND 
+ *******/
  .second {
     height: 100wh;
     position: relative;
     display: grid;
+    color: #2c2119;
     grid-gap: 20px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
@@ -70,11 +121,58 @@
     grid-area: done;
  }
  
- h1 {
+ .h1 {
     color: #3d4535;
     text-align: center;
     font-size: 2.5em;
     font-family: "Emilys Candy", cursive;
  }
  
+ /**** Ad item ****/
+ #add-item-form {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas:
+       "item qInput"
+       "button button";
+ }
  
+ .item-name {
+    grid-area: item;
+ }
+ 
+ .item-quant {
+    grid-area: qInput;
+    padding-left: 10px;
+ }
+ 
+ .add-btn {
+    grid-area: button;
+    justify-self: end;
+ }
+ 
+ #item {
+    width: 100%;
+ }
+ 
+ #quantity {
+    width: 100%;
+ }
+ 
+ input::placeholder {
+    color: #07037c;
+ }
+ 
+ input {
+    border: none;
+    border-bottom: 1px solid #07037c;
+    margin-bottom: 20px;
+ }
+ 
+ .btn-add {
+    color: #fff;
+    background-color: #07037c;
+    padding: 10px 15px;
+    border-radius: 5px;
+ }
