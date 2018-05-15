@@ -1,67 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Shopping list</title>
-        <!-- font -->
-        <link href="https://fonts.googleapis.com/css?family=Emilys+Candy|Josefin+Slab|Reenie+Beanie|Share" rel="stylesheet">
-     
-        <!-- Icon link -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-        <script src="https://use.fontawesome.com/8756b65303.js"></script>
 
-        <link rel="stylesheet" href="css/styles.css" >
-     </head>
-     <body>
-            <div class="title-container">
-               <div class="title">
-                  <h1>Shopping list</h1>
-               </div>
-               <div class="main-pic">
-                  <img class="cake" src="https://www.misskatecuttables.com/uploads/shopping_cart/8831/large_valentine-cupcake.png" alt="Cupcake" />
-               </div>
-               <div class="nav">
-                  <nav>
-                     <ul>
-                        <li>Add to the list</li>
-                        <li>Shopping list</li>
-                        <li>Done list</li>
-                     </ul>
-                  </nav>
-               </div>
-            </div>
-         
-            <div class="container second">
-               <section id="add-item-panel" class="add-item-panel">
-                  <h1>Add item</h1>
-                  <form id="add-item-form" action="/add-item">
-                     <div class="item-name">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list</title>
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Emilys+Candy|Josefin+Slab|Reenie+Beanie|Share" rel="stylesheet">
+
+    <!-- Icon link -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/8756b65303.js"></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="title-container">
+        <div class="title">
+            <h1>Shopping list</h1>
+        </div>
+        <div class="main-pic">
+            <img class="cake" src="https://www.misskatecuttables.com/uploads/shopping_cart/8831/large_valentine-cupcake.png" alt="Cupcake"
+            />
+        </div>
+
+        <div class="container second">
+            <section id="add-item-panel" class="add-item-panel">
+                <h1>Add item</h1>
+                <form id="add-item-form" action="/add-item">
+                    <div class="item-name">
                         <label for="item"></label>
                         <input type="text" name="item" id="item" placeholder="Add the item.." />
-                     </div>
-                     <div class="item-quant">
+                    </div>
+                    <div class="item-quant">
                         <label for="quantity"></label>
                         <input type="number" min="1" name="quantity" placeholder="num" id="quantity" value=Quant />
-                     </div>
-                     <div class="add-btn">
+                    </div>
+                    <div class="add-btn">
                         <button class="btn-add">Add</button>
-                     </div>
-                  </form>
-               </section>
-         
-               <section id="shopping-list" class="shopping-list">
-                  <h1>Shopping List</h1>
-                  <ul class="list">
-                  </ul>
-               </section>
-         
-               <section id="done-list" class="done-list">
-                  <h1>Done List</h1>
-                  <ul class="list">
-                  </ul>
-               </section>
-            </div>
-         
-            <script type="text/javascript" src="js/index.js"></script>
-         </body>
+                    </div>
+                </form>
+            </section>
+
+            <section id="shopping-list" class="shopping-list">
+                <h1>Shopping List</h1>
+                <ul class="list">
+                </ul>
+            </section>
+
+            <section id="done-list" class="done-list">
+                <h1>Done List</h1>
+                <ul class="list">
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+
 </html>

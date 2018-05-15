@@ -10,41 +10,46 @@
  }
  
  .title-container {
+    position: relative;
+    height: 100vh;
     width: 100wv;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background:linear-gradient(-45deg, rgba(0,0,1,1),rgba(7,11,122,1));
+    background:linear-gradient(-45deg, rgba(0,0,0,1),rgba(7,11,122,1));
+    grid-template-areas: 
+       "title cake"
+       "lists lists";
  }
  
  .title {
-    /*background-image: linear-gradient(-45deg, rgba(142,242,172,.7) 30%, rgba(25,0,0,1)100%);*/
+    /*background-image: linear-gradient(-45deg, rgba(142,242,172,.7) 30%, rgba(25,0,0,1)100%);
     font-weight: bolder;
-    -webkit-background-clip: text, border;
+    -webkit-background-clip: text, border;*/
     color: pink;
-    text-align: center;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
     position: relative;
-    padding: 200px 20px 0;
+    padding: 70px 0 0;
     font-family: "Emilys Candy", cursive;
+    grid-area: title;
  }
  
  .title h1 {
-    
-    font-size: 150px;
+    font-size: 5em;
+    text-align: right;
  }
+ 
  .main-pic {
     position: relative;
+    grid-area: cake;
  }
  
  .main-pic img {
+    width: 150px;
     position: absolute;
-    top: 20%;
-    left: 30%;
-    transform: translatex(50%);
-    transform: translate(-50%);
+    top: 11%;
+    left: 25%;
     /** SHADOW TO CUPCAKE */
     /**-webkit-filter: drop-shadow( -5px -5px 5px #000 ); 
              filter: drop-shadow( -5px -5px 5px #000 );
@@ -52,11 +57,11 @@
  }
  
  .cake {
-    -webkit-animation: play 1s steps(10) infinite;
-    -moz-animation: play 1s steps(10) infinite;
-    -ms-animation: play 1s steps(10) infinite;
-    -o-animation: play 1s steps(10) infinite;
-    animation: play 1s steps(10) infinite;
+    -webkit-animation: play 2s steps(10) infinite;
+    -moz-animation: play 2s steps(10) infinite;
+    -ms-animation: play 2s steps(10) infinite;
+    -o-animation: play 2s steps(10) infinite;
+    animation: play 2s steps(10) infinite;
  }
  
  @keyframes play {
@@ -71,31 +76,12 @@
     }
  }
  
- .nav {
-    grid-column: 1/-1;
-    color: #fff;
-    font-size: 1.5em;
- }
- 
- nav ul {
-    display: flex;
-    justify-content: space-evenly;
- }
- 
- nav ul li {
-    font-size: 2em;
-    padding: 20px;
-    cursor: pointer;
-    text-shadow: 1px 1px 10px #fff;
-    font-family: "Emilys Candy", cursive;
- }
- 
  /********* 
  SECOND 
  *******/
  .second {
-    height: 100wh;
     position: relative;
+    grid-area: lists;
     display: grid;
     color: #2c2119;
     grid-gap: 20px;
@@ -121,7 +107,7 @@
     grid-area: done;
  }
  
- .h1 {
+ .second h1 {
     color: #3d4535;
     text-align: center;
     font-size: 2.5em;
