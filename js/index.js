@@ -25,7 +25,7 @@ function renderShoppingList() {
 
     listEl.innerHTML = '';
 
-    shoppingList.forEach( shoppingItem => {
+    shoppingList.forEach(shoppingItem => {
         let itemEl = document.createElement('li');
 
         let doneCheckEl = document.createElement('input');
@@ -80,7 +80,7 @@ function addItemPanel() {
             formEl.reset();
             addItem(item, shoppingList);
             renderShoppingList();
-        }        
+        }
     })
 }
 
@@ -92,7 +92,7 @@ function addItem(targetItem, targetList) {
 function removeItem(targetItem, targetList) {
     let newList = [];
 
-    targetList.forEach( item => {
+    targetList.forEach(item => {
         if (item.name !== targetItem.name) {
             newList.push(item);
         }
@@ -109,7 +109,7 @@ function renderDoneList() {
 
     listEl.innerHTML = '';
 
-    doneList.forEach( shoppingItem => {
+    doneList.forEach(shoppingItem => {
         let itemEl = document.createElement('li');
 
         let nameEl = document.createElement('span');
@@ -120,7 +120,7 @@ function renderDoneList() {
         quantityEl.innerHTML = shoppingItem.quantity;
         itemEl.appendChild(quantityEl);
 
-        
+
         let btnUndo = document.createElement('button');
         btnUndo.classList.add('btn-undo');
         btnUndo.innerHTML = 'Undo';
