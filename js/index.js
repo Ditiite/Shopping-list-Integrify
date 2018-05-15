@@ -51,7 +51,7 @@ function renderShoppingList() {
 
         let btnDelete = document.createElement('button');
         btnDelete.classList.add('btn-delete');
-        btnDelete.innerHTML = 'Delete';
+        btnDelete.innerHTML = '<i class="fas fa-trash-alt"></i>';
         btnDelete.addEventListener('click', event => {
             shoppingList = removeItem(shoppingItem, shoppingList);
             renderShoppingList();
@@ -111,7 +111,6 @@ function renderDoneList() {
 
     doneList.forEach(shoppingItem => {
         let itemEl = document.createElement('li');
-
         let nameEl = document.createElement('span');
         nameEl.innerHTML = shoppingItem.name;
         itemEl.appendChild(nameEl);
@@ -135,7 +134,7 @@ function renderDoneList() {
 
         let btnDelete = document.createElement('button');
         btnDelete.classList.add('btn-delete');
-        btnDelete.innerHTML = 'Delete';
+        btnDelete.innerHTML = '<i class="fas fa-trash-alt delete"></i>';
         btnDelete.addEventListener('click', event => {
             doneList = removeItem(shoppingItem, doneList);
             renderDoneList();
@@ -153,3 +152,7 @@ function renderDoneList() {
 renderShoppingList();
 addItemPanel();
 renderDoneList();
+
+function newFunction() {
+    return 'check-style';
+}

@@ -12,10 +12,11 @@
  .title-container {
     position: relative;
     height: 100vh;
-    width: 100wv;
+    width: 100vw;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background:linear-gradient(-45deg, rgba(0,0,0,1),rgba(7,11,122,1));
+    grid-template-rows: 1fr 3fr;
+    background:linear-gradient(-45deg, rgba(0,0,0,1),rgb(2, 6, 136));
     grid-template-areas: 
        "title cake"
        "lists lists";
@@ -25,7 +26,7 @@
     /*background-image: linear-gradient(-45deg, rgba(142,242,172,.7) 30%, rgba(25,0,0,1)100%);
     font-weight: bolder;
     -webkit-background-clip: text, border;*/
-    color: pink;
+    color: rgb(253, 192, 202);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -57,22 +58,22 @@
  }
  
  .cake {
-    -webkit-animation: play 2s steps(10) infinite;
-    -moz-animation: play 2s steps(10) infinite;
-    -ms-animation: play 2s steps(10) infinite;
-    -o-animation: play 2s steps(10) infinite;
-    animation: play 2s steps(10) infinite;
+    -webkit-animation: play 3s steps(40) infinite;
+    -moz-animation: play 2s steps(40) infinite;
+    -ms-animation: play 2s steps(40) infinite;
+    -o-animation: play 2s steps(40) infinite;
+    animation: play 3s steps(40) infinite;
  }
  
  @keyframes play {
     0% {
-       transform: translatey(0px);
+       transform: translatey(-10px);
     }
     50% {
-       transform: translatey(-20px);
+       transform: translatey(20px);
     }
     100% {
-       transform: translatey(0px);
+       transform: translatey(-10px);
     }
  }
  
@@ -80,15 +81,19 @@
  SECOND 
  *******/
  .second {
+     width: 80vw;
+    margin: 0 auto;
+    background-color: rgb(231, 231, 231);
+    color: #080035;
     position: relative;
     grid-area: lists;
-    display: grid;
-    color: #2c2119;
-    grid-gap: 20px;
+    display: grid;    
+    grid-gap: 40px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
        "addItem todo done";
-    font-family: 'Source Code Pro', monospace;
+       font-family: 'PT Mono', monospace;
+    border-radius: 5px;
  }
  
  ul {
@@ -105,16 +110,20 @@
  
  .done-list {
     grid-area: done;
+    padding-right: 20px;
  }
  
+ .done-list span {
+    text-decoration: line-through;
+ }
  .second h1 {
-    color: #3d4535;
+    color: #2c2746;
     text-align: center;
-    font-size: 2.5em;
-    font-family: "Emilys Candy", cursive;
+    font-size: 2em;
+    padding: 20px;
  }
  
- /**** Ad item ****/
+ /**** Add item ****/
  #add-item-form {
     padding: 20px;
     display: grid;
@@ -147,18 +156,75 @@
  }
  
  input::placeholder {
-    color: #07037c;
+    color: rgb(255, 168, 183);
  }
  
  input {
     border: none;
-    border-bottom: 1px solid #07037c;
+    border-bottom: 1px solid rgb(255, 168, 183);
     margin-bottom: 20px;
+    background-color: transparent;
+    outline-color:  rgb(255, 224, 229);
  }
  
- .btn-add {
+ .btn-add,
+ .btn-undo {
     color: #fff;
-    background-color: #07037c;
+    background-color: rgb(253, 192, 202);
     padding: 10px 15px;
     border-radius: 5px;
+    border: none;
+    box-shadow: 1px 1px 10px rgb(231, 202, 255);
+    outline-color: rgb(253, 192, 202);
+    transition: ease-in-out 1s;
  }
+
+ .btn-add:hover {
+     color:rgb(153, 97, 196); 
+     box-shadow: 2px 2px 10px rgb(153, 97, 196); 
+ }
+
+ .btn-delete:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    color: red;
+  }
+  
+  @keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
+
+ /******* SHOPPING LIST ****/
+ .shopping-list span {
+     padding: 0 10px;
+ }
+
+ .btn-delete {
+    float: right;
+    background: none;
+    border: none;
+    color: rgb(207, 115, 131);
+    transition: ease-in-out 1s; 
+    border-radius: 5px;
+ }
+
+ i {  
+    font-size: 1.5em;
+ }
+
