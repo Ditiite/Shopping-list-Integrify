@@ -2,7 +2,7 @@
  * Shopping list
  */
 
-const shoppingList = [{
+let shoppingList = [{
     name: "Ted baker shoes",
     quantity: 2
 }, {
@@ -20,7 +20,7 @@ const shoppingList = [{
 }
 ];
 
-const doneList = [];
+let doneList = [];
 
 // Shopping list
 function renderShoppingList() {
@@ -85,6 +85,7 @@ function addItemPanel() {
 function addItem(targetItem, targetList) {
     targetList.push(targetItem);
 }
+
 function removeItem(targetItem, targetList) {
     return targetList.filter(item => item.name !== targetItem.name);
 }
