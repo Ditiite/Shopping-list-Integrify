@@ -20,7 +20,7 @@
     grid-template-areas: 
        "title cake"
        "lists lists";
- }
+}
  
  .title {
     /*background-image: linear-gradient(-45deg, rgba(142,242,172,.7) 30%, rgba(25,0,0,1)100%);
@@ -31,7 +31,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
-    padding: 70px 0 0;
+    padding: 70px 0 15px;
     font-family: "Emilys Candy", cursive;
     grid-area: title;
  }
@@ -75,14 +75,14 @@
     100% {
        transform: translatey(-10px);
     }
- }
+}
  
  /********* 
  SECOND 
  *******/
- .second {
-     width: 80vw;
-    margin: 0 auto;
+.second {
+    width: 90vw;
+    margin: 0 auto 10px;
     background-color: rgb(231, 231, 231);
     color: #080035;
     position: relative;
@@ -94,16 +94,16 @@
        "addItem todo done";
        font-family: 'PT Mono', monospace;
     border-radius: 5px;
- }
+}
  
- ul {
+ul {
     list-style-type: none;
     padding: 20px 0 20px 30px;
- }
+}
  
- .add-item-panel {
+.add-item-panel {
     grid-area: addItem;
- }
+}
  
  .shopping-list {
     grid-area: todo;
@@ -116,12 +116,15 @@
  
  .done-list span {
     text-decoration: line-through;
+    padding: 0 10px;
  }
+
  .second h1 {
     color: #2c2746;
     text-align: center;
     font-size: 2em;
     padding: 20px;
+    cursor: pointer;
  }
  
  /**** Add item ****/
@@ -168,14 +171,23 @@
     outline-color:  rgb(255, 224, 229);
  }
  
- .btn-add,
- .btn-undo {
+ .btn-add {
     color: #fff;
     background-color: rgb(253, 192, 202);
     padding: 10px 15px;
     border-radius: 5px;
     border: none;
     box-shadow: 1px 1px 10px rgb(231, 202, 255);
+    outline-color: rgb(253, 192, 202);
+    transition: ease-in-out 1s;
+ }
+
+ .btn-undo {
+    color: rgb(207, 115, 131);
+    margin-left: 15px;
+    background-color: transparent;
+    padding: 10px;
+    border: none;
     outline-color: rgb(253, 192, 202);
     transition: ease-in-out 1s;
  }
@@ -230,3 +242,82 @@
     justify-self: right;
  }
 
+.active {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+ /***********
+ @media
+ ***********/
+
+ @media screen and (max-width: 1250px) {
+    .second {
+        width: 90vw;
+        margin: 0 auto 10px;
+        grid-gap: 0 40px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 2fr repeat(1fr);
+        grid-template-areas:
+            "addItem addItem"
+            "todo done";
+    }
+
+    .title-container {
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .title {
+        margin-left: 20px;
+        padding: 40px 0 15px;
+    }
+ }
+ @media screen and (max-width: 650px){
+    .title-container {
+        grid-template-columns: 1fr 3fr;
+        grid-template-areas: 
+        "cake title"
+        "lists lists";
+    }
+    .title h1 {
+        font-size: 3em;
+        text-align: center;
+    }
+
+    .title {
+        padding: 30px 0 0;
+    }
+
+    .main-pic img {
+        width: 85px;
+        left: 3px;
+        top: 15px;
+    }
+
+    .second {   
+        margin: 10px auto;
+        width: 95vw; 
+        grid-gap: 0;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+           "addItem"
+            "todo"
+            "done";
+    }
+     
+    ul {
+        padding: 10px;
+    }
+
+    .second h1 {
+        font-size: 1.5em;
+        padding: 20px;
+    }
+
+    .done-list {
+        padding-right: 0;
+     }
+ }
+ 
