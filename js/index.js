@@ -14,21 +14,25 @@ let shoppingList = [{
 }, {
     name: "Banana",
     quantity: 15
-}];
+}, {
+    name: "apple",
+    quantity: 7
+}
+];
 
 let doneList = [];
 
 // Shopping list
 function renderShoppingList() {
-    let containerEl = document.querySelector('#shopping-list');
-    let listEl = containerEl.querySelector('.list');
+    const containerEl = document.querySelector('#shopping-list');
+    const listEl = containerEl.querySelector('.list');
 
     listEl.innerHTML = '';
 
     shoppingList.forEach(shoppingItem => {
-        let itemEl = document.createElement('li');
+        const itemEl = document.createElement('li');
 
-        let html = `
+        const html = `
             <input type="checkbox" name="done-check" />
             <span>${shoppingItem.name}</span>
             <span>${shoppingItem.quantity}</span>
@@ -58,12 +62,12 @@ function renderShoppingList() {
 
 // Add item
 function addItemPanel() {
-    let containerEl = document.querySelector('#add-item-panel');
-    let formEl = containerEl.querySelector('#add-item-form');
+    const containerEl = document.querySelector('#add-item-panel');
+    const formEl = containerEl.querySelector('#add-item-form');
 
     formEl.addEventListener('submit', event => {
         event.preventDefault();
-        let item = {};
+        const item = {};
 
         item.name = formEl.querySelector('input[name=item]').value;
         item.quantity = formEl.querySelector('input[name=quantity]').value;
@@ -82,37 +86,30 @@ function addItem(targetItem, targetList) {
     targetList.push(targetItem);
 }
 function removeItem(targetItem, targetList) {
-    let newList = [];
-
-    targetList.forEach(item => {
-        if (item.name !== targetItem.name) {
-            newList.push(item);
-        }
-    });
-
-    return newList;
+    return targetList.filter(item => item.name !== targetItem.name);
 }
 
 
 // Done list
 function renderDoneList() {
-    let containerEl = document.querySelector('#done-list');
-    let listEl = containerEl.querySelector('.list');
+    const containerEl = document.querySelector('#done-list');
+    const listEl = containerEl.querySelector('.list');
 
     listEl.innerHTML = '';
 
+
     doneList.forEach(shoppingItem => {
-        let itemEl = document.createElement('li');
-        let nameEl = document.createElement('span');
+        const itemEl = document.createElement('li');
+        const nameEl = document.createElement('span');
         nameEl.innerHTML = shoppingItem.name;
         itemEl.appendChild(nameEl);
 
-        let quantityEl = document.createElement('span');
+        const quantityEl = document.createElement('span');
         quantityEl.innerHTML = shoppingItem.quantity;
         itemEl.appendChild(quantityEl);
 
 
-        let btnUndo = document.createElement('button');
+        const btnUndo = document.createElement('button');
         btnUndo.classList.add('btn-undo');
         btnUndo.innerHTML = 'Undo';
         btnUndo.addEventListener('click', event => {
@@ -122,6 +119,7 @@ function renderDoneList() {
             renderShoppingList();
             renderDoneList();
         });
+
         itemEl.appendChild(btnUndo);
 
         let btnDelete = document.createElement('button');
@@ -131,10 +129,8 @@ function renderDoneList() {
             doneList = removeItem(shoppingItem, doneList);
             renderDoneList();
         });
+
         itemEl.appendChild(btnDelete);
-
-
-
         listEl.appendChild(itemEl);
     });
 }
@@ -149,19 +145,16 @@ function newFunction() {
     return 'check-style';
 }
 
+/**** Accordion 
+const collapse = document.getElementsByClassName('accordion');
 
-
-/**** Accordion */
-const accordion = document.getElementsByClassName('accordion');
-
-for (let i = 0; i < accordion.length; i++) {
-    accordion[i].addEventListener('click', function() {
-        this.classList.toggle('active');
-        let panel = this.nextElementSibling;
-        if (panel.style.display === 'block') {
-            panel.style.display = 'none';
+for (let i = 0; i < collapse.length; i++) {
+    collapse[i].addEventListener("click", function() {
+        let content = this.nextElementSibling;
+        if (content.style.display === "block") {
+            content.style.display = "none";
         } else {
-            panel.style.display = 'block';
+            content.style.display = "block";
         }
     });
-}
+}*/

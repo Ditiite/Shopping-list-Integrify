@@ -20,8 +20,7 @@
     grid-template-areas: 
        "title cake"
        "lists lists";
-       height: auto;
- }
+}
  
  .title {
     /*background-image: linear-gradient(-45deg, rgba(142,242,172,.7) 30%, rgba(25,0,0,1)100%);
@@ -82,7 +81,7 @@
  SECOND 
  *******/
 .second {
-    width: 80vw;
+    width: 90vw;
     margin: 0 auto 10px;
     background-color: rgb(231, 231, 231);
     color: #080035;
@@ -244,10 +243,11 @@ ul {
  }
 
 .active {
-    display: none;
-}
-.panel {
     display: block;
+}
+
+.hidden {
+    display: none;
 }
  /***********
  @media
