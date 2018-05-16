@@ -2,7 +2,7 @@
  * Shopping list
  */
 
-let shoppingList = [{
+const shoppingList = [{
     name: "Ted baker shoes",
     quantity: 2
 }, {
@@ -16,7 +16,7 @@ let shoppingList = [{
     quantity: 15
 }];
 
-let doneList = [];
+const doneList = [];
 
 // Shopping list
 function renderShoppingList() {
