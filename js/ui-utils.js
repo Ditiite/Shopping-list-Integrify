@@ -10,8 +10,11 @@ function renderList(targetListEl, list, type) {
         // Create the HTML for Shopping list
         if (type === 'shoppingList') {
             html = `
-                <input type="checkbox" onchange="onCompleted('${listItem.name}')" name="done-check" />
-                <span>${listItem.name}</span>
+                <label class="container-checkbox">
+                    <input type="checkbox" onchange="onCompleted('${listItem.name}')" name="done-check"></input>
+                    <span class="checkmark"></span>
+                </label>
+                <span class="input-text">${listItem.name}</span>
                 <span>${listItem.quantity}</span>
                 <button class="btn-delete" onclick="onDeleteShoppingList('${listItem.name}')" ><i class="fas fa-trash-alt"></i></button>
             `;

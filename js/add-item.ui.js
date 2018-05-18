@@ -3,8 +3,6 @@
  * UI to add item to shopping list
  */
 
-
-
 function addItemUI() {
     // Select the targeted elements
     const containerEl = document.querySelector('#add-item-panel');

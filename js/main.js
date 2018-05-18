@@ -1,3 +1,4 @@
+
 let shoppingList = [{
         name: "Ted baker shoes",
         quantity: 2
@@ -40,12 +41,10 @@ function onUndo(targetName) {
     updateListUI();
 }
 
-
 function onDeleteShoppingList(targetName) {
     shoppingList = deleteItem(targetName, shoppingList);
     shoppingListUI();
 }
-
 
 function onDeleteDoneList(targetName) {
     doneList = deleteItem(targetName, doneList);

@@ -47,7 +47,7 @@ function renderShoppingList() {
             setTimeout(() => {
                 renderShoppingList();
                 renderDoneList();
-            }, 250);
+            }, 1150);
         });
 
         const btnDelete = itemEl.querySelector('button.btn-delete');
