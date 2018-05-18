@@ -33,21 +33,23 @@ function renderShoppingList() {
         const itemEl = document.createElement('li');
 
         const html = `
-            <input type="checkbox" name="done-check" />
+            <span type="checkbox" class="checkbox" name="done-check"></span>
             <span>${shoppingItem.name}</span>
             <span>${shoppingItem.quantity}</span>
             <button class="btn-delete" ><i class="fas fa-trash-alt"></i></button>
         `;
         itemEl.innerHTML = html;
 
-        const doneCheckEl = itemEl.querySelector('input[name=done-check]');
-        doneCheckEl.addEventListener('change', event => {
+        const doneCheckEl = itemEl.querySelector('.checkbox');
+        doneCheckEl.addEventListener('click', event => {
+            doneCheckEl.classList.add('.checkbox::after');
+            doneCheckEl.classList.remove('.checkbox');
             shoppingList = removeItem(shoppingItem, shoppingList);
             addItem(shoppingItem, doneList);
             setTimeout(() => {
                 renderShoppingList();
                 renderDoneList();
-            }, 250);
+            }, 1250);
         });
 
         const btnDelete = itemEl.querySelector('button.btn-delete');
@@ -145,17 +147,3 @@ renderDoneList();
 function newFunction() {
     return 'check-style';
 }
-
-/**** Accordion 
-const collapse = document.getElementsByClassName('accordion');
-
-for (let i = 0; i < collapse.length; i++) {
-    collapse[i].addEventListener("click", function() {
-        let content = this.nextElementSibling;
-        if (content.style.display === "block") {
-            content.style.display = "none";
-        } else {
-            content.style.display = "block";
-        }
-    });
-}*/

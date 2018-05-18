@@ -96,6 +96,11 @@
     background-color: transparent;
 }
  
+section li {
+    padding: 5px 10px;
+    position: relative;
+}
+
 ul {
     list-style-type: none;
     padding: 20px 0 20px 30px;
@@ -123,7 +128,7 @@ ul {
  
  .done-list span {
     text-decoration: line-through;
-    padding: 0 10px;
+    padding: 5px 10px;
  }
 
  .second h1 {
@@ -177,7 +182,7 @@ ul {
     background-color: transparent;
     outline-color:  rgb(255, 224, 229);
  }
- 
+
  .btn-add {
     color: #fff;
     background-color: rgb(253, 192, 202);
@@ -230,9 +235,41 @@ ul {
     }
   }
 
+/***** CHECKBOX STYLE *****/
+
+.checkbox {
+    content: "";
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    border: 1px solid rgb(55, 0, 80);
+    position: absolute;
+    left: 10px;
+    border-radius: 3px;
+    z-index: 1;
+}
+
+
+
+.checkboxafter {
+    content: "";
+    display: inline-block;
+    height: 5px;
+    width: 15px;
+    border-left: 2px solid #ff00d4;
+    border-bottom: 2px solid #ff00d4;
+    transform: rotate(-45deg);
+    position: absolute;
+    left: 13px;
+    z-index: 2;
+    border-radius: 5px;
+    box-shadow: -1px 1px 10px #fccdf4;
+}
+
+
  /******* SHOPPING LIST ****/
  .shopping-list span {
-     padding: 0 10px;
+     padding: 5px 10px;
  }
 
  .btn-delete {
@@ -270,6 +307,7 @@ ul {
         grid-template-areas:
             "addItem addItem"
             "todo done";
+        background-color: rgb(231, 231, 231);
     }
 
     .title-container {

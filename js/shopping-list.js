@@ -44,7 +44,7 @@ function renderList(targetListEl, list, type) {
         // Create the HTML for Shopping list
         if (type === 'shoppingList') {
             html = `
-                <input type="checkbox" onchange="markCompleted('${listItem.name}')" name="done-check" />
+                <input type="checkbox" name="done-check" />
                 <span>${listItem.name}</span>
                 <span>${listItem.quantity}</span>
                 <button class="btn-delete" onclick="shoppingListDelete('${listItem.name}')" ><i class="fas fa-trash-alt"></i></button>
@@ -65,28 +65,18 @@ function renderList(targetListEl, list, type) {
     
         targetListEl.appendChild(listEl);
     });
-}
 
-
-function markCompleted(name) {
-    shoppingList = removeItem(shoppingListEl, )
-}
-
-function shoppingListDelete(name) {
-    console.log("Delete", name);
-}
+};
 
 
 // Move item to other list
 function addItem(targetList, targetItemName) {
-    targetList.push(targetItem);
+    targetList.push(targetlist);
 }
 
-function removeItem(targetList, targetItemName) {
-    return targetList.filter(item => item.name !== targetItemName);
+function removeItem(targetItem, targetList) {
+    return targetList.filter(item => item.name !== targetItem.name);
 }
-
-
 
 function addItemComponent() {
     // Select the targeted elements
@@ -98,12 +88,12 @@ function addItemComponent() {
     // Add eventListener for the submit button
     formEl.addEventListener('submit', (event) => {
         event.preventDefault();
-
+        
         // Gets values from input
         const itemName = formEl.querySelector('#item').value;
-
+    
         // parseInt use to tranform number string to number
-        let itemQuant = parseInt(formEl.querySelector('#quantity').value);
+        const itemQuant = parseInt(formEl.querySelector('#quantity').value);
 
         // If user don't put a number as value assign to default value 1
         if (isNaN(itemQuant)) {
@@ -119,13 +109,14 @@ function addItemComponent() {
         shoppingList.push({
             name: itemName,
             quantity: itemQuant
+            
         });
-
+        console.log(shoppingList);
         // Reset input fields to be empty after every input
         formEl.reset();
     });
+    
 }
 
 addItemComponent();
-
 
