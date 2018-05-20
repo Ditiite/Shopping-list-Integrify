@@ -41,3 +41,14 @@ function deleteItem(targetName, targetList) {
 
     return newList;
 }
+
+
+/**
+ * Collapse shopping list items
+ */
+
+document.querySelectorAll('.collapse').forEach(collapseTrigger => {
+    collapseTrigger.addEventListener('click', function() {
+        this.parentElement.querySelector('.list').classList.toggle('hidden');
+    });
+});

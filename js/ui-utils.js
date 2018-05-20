@@ -22,9 +22,9 @@ function renderList(targetListEl, list, type) {
         // Create the HTML for Done list
         } else if(type === 'doneList') {
             html = `
+                <button class="btn-undo" onclick="onUndo('${listItem.name}')">Undo</button>
                 <span>${listItem.name}</span>
                 <span>${listItem.quantity}</span>
-                <button class="btn-undo" onclick="onUndo('${listItem.name}')">Undo</button>
                 <button class="btn-delete" onclick="onDeleteDoneList('${listItem.name}')"><i class="fas fa-trash-alt"></i></button>
             `;
         }

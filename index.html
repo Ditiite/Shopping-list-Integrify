@@ -14,6 +14,9 @@
     <script src="https://use.fontawesome.com/8756b65303.js"></script>
 
     <link rel="stylesheet" href="css/styles.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+    
 </head>
 
 <body>
@@ -29,6 +32,8 @@
         
         <div class="container second">
             <section id="add-item-panel" class="add-item-panel">
+                <!-- Image of cook next to add list -->
+                    <!-- <img class="cook" src="https://png.kisspng.com/sh/1ea0b033dadb1d18b0a0a52def5e17d9/L4Dxd3E5UME5OGQ4SJH5eoGye7r6kCBvb15oh9H0LXPrdbe0gBxqeF5miuY2Y3Bye368gfJmOmY5eqcBMEO2SXA9WMY5OGU8TKMAMkK3QYGBUsc0PWM4RuJ3Zx==/kisspng-cook-chef-clip-art-cook-5abe254b560339.6868047415224108273523.png"> -->
                 <h1>Add item</h1>
                 <form id="add-item-form" action="/add-item">
                     <div class="item-name">
@@ -46,17 +51,19 @@
             </section>
 
             <section id="shopping-list" class="shopping-list">
-                <h1 class="accordion">Shopping List</h1>
-                <ul class="active list">
+                <h1 class="accordion collapse">Shopping List</h1>
+                <ul class="list">
                 </ul>
             </section>
 
             <section id="done-list" class="done-list">
-                <h1 class="accordion">Completed</h1>
-                <ul class="active list">
+                <h1 class="collapse" >Completed</h1>
+                <ul class="list">
                 </ul>
             </section>
         </div>
+<!-- <img src="images/flower.png"> -->
+
     </div>
 
     <script type="text/javascript" src="js/list-utils.js"></script>
