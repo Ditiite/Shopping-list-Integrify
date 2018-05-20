@@ -51,6 +51,32 @@ function onDeleteDoneList(targetName) {
     doneListUI();
 }
 
+function saveItem(targetName, currentEl) {
+    const parentEl = currentEl.parentElement;
+
+    const itemEl = parentEl.querySelector('#item');
+
+    // Gets values from input
+    const itemName = itemEl.value.trim();
+
+    // parseInt use to tranform number string to number
+    let itemQty = parseInt(parentEl.querySelector('#quantity').value);
+
+    // If user don't put a number as value assign to default value 1
+    if (isNaN(itemQty)) {
+        itemQty = 1;
+    }
+
+    // If there is no value added for the name return
+    if (!itemName) {
+        return;
+    }
+
+    // Update item with new values in shoppingList
+    shoppingList = editItem(targetName, itemName, itemQty, shoppingList);
+    shoppingListUI();
+}
+
 // Update User Interfaces when script runs
 addItemUI();
 updateListUI();
@@ -61,3 +87,7 @@ function updateListUI() {
     doneListUI();
 }
 
+// toggle edit button
+function toggleEditable(element) {
+    element.parentElement.classList.add('editable');
+}

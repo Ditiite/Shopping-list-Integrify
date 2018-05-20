@@ -352,7 +352,7 @@ li {
 
  /******* SHOPPING LIST ****/
  .btn-delete,
- .btn-edit,
+ .btn-toggle-edit,
  .btn-save {
     background: none;
     border: none;
@@ -361,18 +361,23 @@ li {
     border-radius: 5px;
  }
 
- .btn-delete {
-    float: right;
- }
+.btn-edit i {
+    font-size: 1em;
+}
 
- .input-text {
+
+.btn-delete {
+   float: right;
+}
+
+.input-text {
     padding-left: 10px;
- }
+}
 
- i {  
-    font-size: 1.5em;
-    justify-self: right;
- }
+.btn-delete i {  
+   font-size: 1.5em;
+   justify-self: right;
+}
 
 /******** Collapse */
 
