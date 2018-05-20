@@ -153,6 +153,7 @@ li {
     box-shadow: 5px 8px 6px #797879;
     transform: rotate(5deg);
     height: fit-content;
+    padding-bottom: 15px;
  }
  
  .done-list {
@@ -350,13 +351,18 @@ li {
 }
 
  /******* SHOPPING LIST ****/
- .btn-delete {
-    float: right;
+ .btn-delete,
+ .btn-edit,
+ .btn-save {
     background: none;
     border: none;
     color: rgb(207, 115, 131);
     transition: ease-in-out 1s; 
     border-radius: 5px;
+ }
+
+ .btn-delete {
+    float: right;
  }
 
  .input-text {
@@ -501,14 +507,53 @@ li {
         border-radius: 0;
     }
      
-     .shopping-list {
-        border-radius: 0;
-        padding-right: 10px;
-     }
+    .shopping-list {
+       border-radius: 0;
+       padding-right: 10px;
+    }
      
-     .done-list {
-        padding-right: 10px;
-        border-radius: 0;
-     }
- }
+    .done-list {
+       padding-right: 10px;
+       border-radius: 0;
+    }
+}
  
+
+/******* Editable part ****/
+
+.editable-show {
+    display: none;
+ }
+
+.editable .editable-show {
+    display: inline-block;
+ }
+
+.editable .editable-hide {
+    display: none;
+ }
+
+
+.list-div {
+     display: grid;
+     padding: 10px;
+     grid-gap: 10px;
+     grid-template-columns: 50px 3fr 1fr 50px 50px;
+     grid-template-rows: repeat(1fr);
+     grid-template-areas: 
+        ". in-name in-qnt edit dlt";
+    margin: -23px;
+ }
+
+.col-2 {
+    grid-area: in-name;
+}
+.col-3 {
+    grid-area: in-qnt;
+}
+.col-4 {
+    grid-area: edit;
+}
+.col-5 {
+    grid-area: dlt;
+}
