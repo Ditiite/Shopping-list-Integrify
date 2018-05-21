@@ -38,6 +38,36 @@ function deleteItem(targetName, targetList) {
             newList.push(item);
         }
     }
-
+    
     return newList;
 }
+
+
+function editItem(targetName, name, quantity, targetList) {
+    let editList = [];
+
+    for(let i = 0; i < targetList.length; i ++) {
+        let item = targetList[i];
+        if (targetName === item.name) {
+            editList.push({
+                name: name,
+                quantity: quantity
+            });
+        } else {
+            editList.push(item);
+        }
+    }
+
+    return editList;
+}
+
+
+/**
+ * Collapse shopping list items
+ */
+
+document.querySelectorAll('.collapse').forEach(collapseTrigger => {
+    collapseTrigger.addEventListener('click', function() {
+        this.parentElement.querySelector('.list').classList.toggle('hidden');
+    });
+});
