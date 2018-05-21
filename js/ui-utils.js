@@ -10,11 +10,12 @@ function renderList(targetListEl, list, type) {
         // Create the HTML for Shopping list
         if (type === 'shoppingList') {
             html = `
+            
+            <div class="list-div">
             <label class="container-checkbox col-1">
                 <input type="checkbox" onchange="onCompleted('${listItem.name}')" name="done-check"></input>
                 <span class="checkmark"></span>
             </label>
-            <div class="list-div">
                 <input class="editable-show col-2" type="text" name="item" id="item" value="${listItem.name}" />
                 <input class="editable-show col-3" type="number" min="1" name="quantity" id="quantity" value="${listItem.quantity}" />
                 <button class="editable-show btn-save col-4" onclick="saveItem('${listItem.name}', this)"  ><i class="far fa-save"></i></button>
