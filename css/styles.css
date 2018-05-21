@@ -303,7 +303,7 @@ input {
 /* Create a custom checkbox */
 .checkmark {
     position: absolute;
-    top: 0;
+    top: -5px;
     left: 0;
     height: 24px;
     width: 25px;
@@ -399,6 +399,15 @@ input {
 .col-3 { grid-area: in-qnt; }
 .col-4 { grid-area: edit; }
 .col-5 { grid-area: dlt; }
+
+.done-list-grid {
+    align-items: center;
+    display: grid;
+    grid-template-areas: 
+        "undo name quant delete";
+    grid-template-columns: auto 3fr 1fr 50px;
+}
+
 
 /***********
 @media
@@ -538,6 +547,3 @@ input {
        border-radius: 0;
     }
 }
- 
-
-

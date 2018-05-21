@@ -21,7 +21,7 @@ function addItemUI() {
         const itemName = itemEl.value.trim();
 
         // parseInt use to tranform number string to number
-        let itemQty = parseInt(formEl.querySelector('#quantity').value);
+        const itemQty = parseInt(formEl.querySelector('#quantity').value);
 
         // If user don't put a number as value assign to default value 1
         if (isNaN(itemQty)) {
