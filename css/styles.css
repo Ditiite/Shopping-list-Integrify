@@ -4,43 +4,62 @@
     font-size: 18px;
  }
  
- button {
+:root {
+    --h2-font: 'Inconsolata', monospace;
+    --iPad-col-bg: rgba(231, 231, 231, 0.5);
+}
+
+button {
     font-family: "Emilys Candy", cursive;
     cursor: pointer;
- }
+}
  
- .title-container {
+.title-container {
     position: relative;
     width: 100vw;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 3fr;
-    background:linear-gradient(-45deg, rgba(0,0,0,1),rgb(2, 6, 136));
+    background:linear-gradient(-45deg, rgb(189, 90, 114),rgba(225, 196, 201, 0.3)), url(../images/flower-s.png);
+    background-size: cover; 
     grid-template-areas: 
        "title cake"
        "lists lists";
     min-height: 100vh;
 }
  
- .title {
+.title {
     /*background-image: linear-gradient(-45deg, rgba(142,242,172,.7) 30%, rgba(25,0,0,1)100%);
     font-weight: bolder;
     -webkit-background-clip: text, border;*/
-    color: rgb(253, 192, 202);
+    /* 
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
+    background-repeat: no-repeat; */
+    color: rgb(255, 255, 255);
     padding: 70px 0 15px;
     font-family: "Emilys Candy", cursive;
     grid-area: title;
+    position: relative;
  }
  
- .title h1 {
+.letter-border {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    z-index: 1;
+    position: relative;
     font-size: 5em;
-    text-align: right;
+    text-align: right;  
+}
+
+ .under {
+    position:absolute;
+    text-shadow: 10px 1px 50px #faf9e1;
+    font-size: 5em;
+    text-align: right;  
+    width: 100%;
+    top: 69px;
  }
- 
+
  .main-pic {
     position: relative;
     grid-area: cake;
@@ -51,6 +70,7 @@
     position: absolute;
     top: 11%;
     left: 25%;
+    z-index: 3;
     /** SHADOW TO CUPCAKE */
     /**-webkit-filter: drop-shadow( -5px -5px 5px #000 ); 
              filter: drop-shadow( -5px -5px 5px #000 );
@@ -91,99 +111,119 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
        "addItem todo done";
-       font-family: 'PT Mono', monospace;
+    font-family: var(--h2-font);
     border-radius: 5px;
     background-color: transparent;
 }
  
-section li {
-    padding: 5px 10px;
-    position: relative;
-}
-
 ul {
     list-style-type: none;
-    padding: 20px 0 20px 30px;
 }
  
+li {
+    padding: 10px;
+}
+
 .add-item-panel {
     grid-area: addItem;
     background-color: rgb(231, 231, 231);
     border-radius: 5px;
+    border: 1px solid silver;
+    box-shadow: 5px 8px 6px #797879;
+    transform: rotate(-5deg);
+    height: fit-content;
+    position: relative;
 }
  
- .shopping-list {
+.cook {
+    width: 100px;
+    position: absolute;
+    top: 71px;
+    left: -86px;
+    z-index: 1;
+}
+
+.shopping-list {
     grid-area: todo;
     border-radius: 5px;
     background-color: rgb(231, 231, 231);
-    padding-right: 20px;
- }
+    padding: 10px;
+    border: 1px solid silver;
+    box-shadow: 5px 8px 6px #797879;
+    transform: rotate(5deg);
+    height: fit-content;
+}
  
- .done-list {
+.done-list {
     grid-area: done;
     padding-right: 20px;
     background-color: rgb(231, 231, 231);
     border-radius: 5px;
- }
+    border: 1px solid silver;
+    box-shadow: 5px 8px 6px #797879;
+    transform: rotate(-5deg);
+    height: fit-content;
+}
  
- .done-list span {
+.done-list span {
     text-decoration: line-through;
-    padding: 5px 10px;
- }
+    padding: 0 10px;
+}
 
- .second h1 {
-    color: #2c2746;
+.second h1 {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: #eee;
     text-align: center;
     font-size: 2em;
     padding: 20px;
     cursor: pointer;
- }
+}
  
- /**** Add item ****/
- #add-item-form {
+/**** Add item ****/
+#add-item-form {
     padding: 20px;
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-template-areas:
        "item qInput"
        "button button";
- }
+}
  
- .item-name {
+.item-name {
     grid-area: item;
- }
+}
  
- .item-quant {
+.item-quant {
     grid-area: qInput;
     padding-left: 10px;
- }
+}
  
- .add-btn {
+.add-btn {
     grid-area: button;
     justify-self: end;
- }
+}
  
- #item {
+#item {
     width: 100%;
- }
+}
  
- #quantity {
+#quantity {
     width: 100%;
- }
+}
  
- input::placeholder {
+input::placeholder {
     color: rgb(255, 168, 183);
- }
+}
  
- input {
+input {
     border: none;
     border-bottom: 1px solid rgb(255, 168, 183);
     margin-bottom: 20px;
     background-color: transparent;
     outline-color:  rgb(255, 224, 229);
- }
-
- .btn-add {
+}
+ 
+.btn-add {
     color: #fff;
     background-color: rgb(253, 192, 202);
     padding: 10px 15px;
@@ -192,32 +232,38 @@ ul {
     box-shadow: 1px 1px 10px rgb(231, 202, 255);
     outline-color: rgb(253, 192, 202);
     transition: ease-in-out 1s;
- }
+}
 
- .btn-undo {
+.btn-undo {
     color: rgb(207, 115, 131);
     margin-left: 15px;
     background-color: transparent;
-    padding: 10px;
     border: none;
     outline-color: rgb(253, 192, 202);
-    transition: ease-in-out 1s;
- }
+    transform: translateZ(0) scale(1);
+    will-change: transform;  
+    backface-visibility: hidden;
+    transition: transform 0.6s ease-in-out;
+}
 
- .btn-add:hover {
+.btn-undo:hover {
+    transform: translateZ(0) scale(1.3);
+}
+
+.btn-add:hover {
      color:rgb(153, 97, 196); 
      box-shadow: 2px 2px 10px rgb(153, 97, 196); 
- }
+}
 
- .btn-delete:hover {
+.btn-delete:hover {
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     perspective: 1000px;
     color: red;
-  }
+}
   
-  @keyframes shake {
+@keyframes shake {
     10%, 90% {
       transform: translate3d(-1px, 0, 0);
     }
@@ -233,71 +279,144 @@ ul {
     40%, 60% {
       transform: translate3d(4px, 0, 0);
     }
-  }
+}
 
 /***** CHECKBOX STYLE *****/
+/* The container */
+.container-checkbox {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /**transform: rotate(-45deg);*/
+}
 
-.checkbox {
-    content: "";
-    display: inline-block;
-    height: 15px;
-    width: 15px;
-    border: 1px solid rgb(55, 0, 80);
+/* Hide the browser's default checkbox */
+.container-checkbox input {
     position: absolute;
-    left: 10px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    height: 24px;
+    width: 25px;
+    background-color: #eee;
     border-radius: 3px;
-    z-index: 1;
+    border: 1px solid #fccdf4;
 }
 
+/* When the checkbox is checked, add a blue background */
+.container-checkbox input:checked ~ .checkmark {
+    background-color: #fccdf4;
+}
 
-
-.checkboxafter {
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
     content: "";
-    display: inline-block;
-    height: 5px;
-    width: 15px;
-    border-left: 2px solid #ff00d4;
-    border-bottom: 2px solid #ff00d4;
-    transform: rotate(-45deg);
     position: absolute;
-    left: 13px;
-    z-index: 2;
-    border-radius: 5px;
-    box-shadow: -1px 1px 10px #fccdf4;
+    display: none;
 }
 
+/* Show the checkmark when checked */
+.container-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container-checkbox .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid #ff00d4;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transition: all 2s ease-in-out;
+}
+   
+.container-checkbox .checkmark:active { 
+    background-color: #fccdf4;
+    transform: scale(1.5);
+}
 
  /******* SHOPPING LIST ****/
- .shopping-list span {
-     padding: 5px 10px;
- }
-
- .btn-delete {
-    float: right;
+.btn-delete,
+.btn-toggle-edit,
+.btn-save {
     background: none;
     border: none;
     color: rgb(207, 115, 131);
     transition: ease-in-out 1s; 
     border-radius: 5px;
- }
-
- i {  
-    font-size: 1.5em;
-    justify-self: right;
- }
-
-.active {
-    display: block;
 }
 
-.hidden {
-    display: none;
-}
- /***********
- @media
- ***********/
+.btn-edit i { font-size: 1em; }
 
- @media screen and (max-width: 1250px) {
+.btn-delete { float: right; }
+
+.input-text { padding: 10px; }
+
+.btn-delete i {  
+   font-size: 1.5em;
+   justify-self: right;
+}
+
+/******** Collapse */
+
+.hidden { display: none;}
+
+/******* Editable part ****/
+
+.editable-show { display: none; }
+
+.editable .editable-show { display: inline-block; }
+
+.editable .editable-hide { display: none; }
+
+.list-div {
+    align-items: center;
+    display: grid;
+    padding: 10px;
+    grid-gap: 10px;
+    grid-template-columns: auto 3fr 1fr 50px 50px;
+    grid-template-rows: repeat(1fr);
+    grid-template-areas: 
+        "check in-name in-qnt edit dlt";
+    margin: -23px;
+}
+
+.col-1 { grid-area: check; }
+.col-2 { grid-area: in-name; }
+.col-3 { grid-area: in-qnt; }
+.col-4 { grid-area: edit; }
+.col-5 { grid-area: dlt; }
+
+.done-list-grid {
+    align-items: center;
+    display: grid;
+    grid-template-areas: 
+        "undo name quant delete";
+    grid-template-columns: auto 3fr 1fr 50px;
+}
+
+
+/***********
+@media
+***********/
+
+@media screen and (max-width: 1250px) {
     .second {
         width: 90vw;
         margin: 0 auto 10px;
@@ -307,29 +426,82 @@ ul {
         grid-template-areas:
             "addItem addItem"
             "todo done";
-        background-color: rgb(231, 231, 231);
+        /* background-color: rgb(231, 231, 231); */
     }
+
+    .under { top: 40px; }
 
     .title-container {
         grid-template-columns: 2fr 1fr;
+        overflow: hidden;
     }
 
     .title {
         margin-left: 20px;
         padding: 40px 0 15px;
     }
- }
- @media screen and (max-width: 650px){
+
+    .second h1 {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (min-width: 651px) and (max-width: 1025px) {
+    .shopping-list,
+    .add-item-panel,
+    .done-list { 
+        transform: rotate(0deg);
+        background-color: var(--iPad-col-bg);
+    }
+
+    /* .add-item-panel{ 
+        width: 80vw;
+        margin: 0 auto;
+    } */
+
+    .second {
+        width: 95vw;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+           "addItem"
+            "todo"
+            "done";
+        grid-gap: 20px;
+    }
+
+    .second h1 { 
+        color: rgb(95, 95, 95);
+        text-shadow: none;
+        font-size: 2em;
+    }
+
+    input {
+        font-size: 1.5em;
+    }
+
+    input::placeholder {
+        color: rgb(107, 70, 76);
+     }
+     
+
+    li span { font-size: 1.5em; }
+}
+
+@media screen and (max-width: 650px){
+    .second { margin: 0 10px 10px;}
     .title-container {
         grid-template-columns: 1fr 3fr;
         grid-template-areas: 
         "cake title"
         "lists lists";
     }
+
     .title h1 {
         font-size: 3em;
         text-align: center;
     }
+
+    .under { top: 30px; }
 
     .title {
         padding: 30px 0 0;
@@ -342,7 +514,7 @@ ul {
     }
 
     .second {   
-        margin: 10px auto;
+        margin: -43px auto 20px;
         width: 95vw; 
         grid-gap: 0;
         grid-template-columns: 1fr;
@@ -357,7 +529,6 @@ ul {
     }
 
     .second h1 {
-        font-size: 1.5em;
         padding: 20px;
     }
 
@@ -369,14 +540,13 @@ ul {
         border-radius: 0;
     }
      
-     .shopping-list {
-        border-radius: 0;
-        padding-right: 10px;
-     }
+    .shopping-list {
+       border-radius: 0;
+       padding-right: 10px;
+    }
      
-     .done-list {
-        padding-right: 10px;
-        border-radius: 0;
-     }
- }
- 
+    .done-list {
+       padding-right: 10px;
+       border-radius: 0;
+    }
+}

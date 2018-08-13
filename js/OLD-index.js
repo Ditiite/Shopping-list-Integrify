@@ -49,7 +49,13 @@ function renderShoppingList() {
             setTimeout(() => {
                 renderShoppingList();
                 renderDoneList();
+<<<<<<< HEAD:js/index.js
             }, 1250);
+||||||| merged common ancestors
+            }, 250);
+=======
+            }, 1150);
+>>>>>>> function:js/OLD-index.js
         });
 
         const btnDelete = itemEl.querySelector('button.btn-delete');
