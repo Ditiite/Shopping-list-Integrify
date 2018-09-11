@@ -1,5 +1,3 @@
-
-
 // Renders the list 
 function renderList(targetListEl, list, type) {
     targetListEl.innerHTML = '';

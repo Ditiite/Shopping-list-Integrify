@@ -25,7 +25,6 @@ let doneList = [{
     quantity: 7
 }];
 
-
 // Select the targeted list
 const shoppingListEl = document.querySelector('#shopping-list .list');
 const doneListEl = document.querySelector('#done-list .list');

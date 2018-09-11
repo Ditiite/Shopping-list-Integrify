@@ -1,6 +1,3 @@
-
-
-
 /**
  * Push item to target list
  * @param {string} name 
@@ -42,10 +39,8 @@ function deleteItem(targetName, targetList) {
     return newList;
 }
 
-
 function editItem(targetName, name, quantity, targetList) {
     let editList = [];
-
     for(let i = 0; i < targetList.length; i ++) {
         let item = targetList[i];
         if (targetName === item.name) {
@@ -57,15 +52,13 @@ function editItem(targetName, name, quantity, targetList) {
             editList.push(item);
         }
     }
-
     return editList;
+   
 }
-
 
 /**
  * Collapse shopping list items
  */
-
 document.querySelectorAll('.collapse').forEach(collapseTrigger => {
     collapseTrigger.addEventListener('click', function() {
         this.parentElement.querySelector('.list').classList.toggle('hidden');
